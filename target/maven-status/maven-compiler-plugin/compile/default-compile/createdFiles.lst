@@ -1,0 +1,8 @@
+DisplayManager.class
+VendingMachine.class
+exceptions/InvalidCoinException.class
+CoinOutputter.class
+CoinValidator.class
+CoinInputter.class
+Coin.class
+CoinValidator$ValidCoin.class
