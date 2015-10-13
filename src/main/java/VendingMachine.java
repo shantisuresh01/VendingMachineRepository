@@ -21,7 +21,7 @@ public class VendingMachine {
     public void insertCoin(final Coin coin) {
         double value = cv.validateCoin(coin);
         addToCurrentTotal(value);
-        dm.updateDisplayMsg("Paid: " + getCurrentTotal() );
+        dm.updateDisplayMsg("Paid: " + String.format("%.02f", getCurrentTotal()));
          
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VendingMachineTest" time="0.035" tests="6" errors="0" skipped="0" failures="0">
+<testsuite name="VendingMachineTest" time="0.087" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib"/>
@@ -61,10 +61,11 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="CoinValidatorRejectsPennies" classname="VendingMachineTest" time="0.01"/>
+  <testcase name="CoinValidatorRejectsPennies" classname="VendingMachineTest" time="0.014"/>
   <testcase name="vendingMachineReturnsACoin" classname="VendingMachineTest" time="0"/>
-  <testcase name="CoinInputterReturnsACoin" classname="VendingMachineTest" time="0.012"/>
-  <testcase name="whenInvalidCoinsAreInsertedCoinValidatorThrowsInvalidCoinException" classname="VendingMachineTest" time="0.009"/>
-  <testcase name="whenVendingMachineIsInitializedDisplayReadsINSERTCOINS" classname="VendingMachineTest" time="0.004"/>
-  <testcase name="vendingMachineCalculatesCoinValue" classname="VendingMachineTest" time="0"/>
+  <testcase name="CoinInputterReturnsACoin" classname="VendingMachineTest" time="0.022"/>
+  <testcase name="whenInvalidCoinsAreInsertedCoinValidatorThrowsInvalidCoinException" classname="VendingMachineTest" time="0.013"/>
+  <testcase name="whenVendingMachineIsInitializedDisplayReadsINSERTCOINS" classname="VendingMachineTest" time="0"/>
+  <testcase name="whenQuarterIsInsertedValueDisplayedIsZeroPoint25" classname="VendingMachineTest" time="0.038"/>
+  <testcase name="whenDimeInsertedValueDisplayedIsZeroPoint10" classname="VendingMachineTest" time="0"/>
 </testsuite>
