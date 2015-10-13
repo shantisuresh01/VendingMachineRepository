@@ -6,3 +6,4 @@ CoinValidator.class
 CoinInputter.class
 Coin.class
 CoinValidator$ValidCoin.class
+CoinInputter$CoinState.class

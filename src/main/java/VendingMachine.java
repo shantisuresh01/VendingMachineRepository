@@ -18,7 +18,7 @@ public class VendingMachine {
         this.co = co;
         this.dm = dm;
     }
-    public void acceptCoin(final Coin coin) throws InvalidCoinException {
+    public void insertCoin(final Coin coin) {
         double value = cv.validateCoin(coin);
         addToCurrentTotal(value);
         dm.updateDisplayMsg("Paid: " + getCurrentTotal() );
@@ -35,6 +35,13 @@ public class VendingMachine {
         return(this.co.outputCoin(aCoin));
     }
     public double evaluateCoin(Coin aCoin) {
-        return(this.cv.validateCoin(aCoin));
+        return(this.cv.validateCoin(this.ci.getCoin()));
+    }
+    public void initialize() {
+        this.currentTotal = 0.0;
+        this.dm.announceInsertCoins();
+    }
+    public String getDisplayMessage() {
+        return(this.dm.getDisplayMsg());
     }
 }

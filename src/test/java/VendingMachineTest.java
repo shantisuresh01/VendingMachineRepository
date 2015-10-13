@@ -67,16 +67,29 @@ public class VendingMachineTest {
     }
     @Test
     public void vendingMachineReturnsACoin() {
-        // System.err.print("hello again");
-        // assertEquals("hello again", errContent.toString());
-        // assertThat(result, containsString("Hello again"));
         assertEquals(penny, vm.returnCoin(penny));
     }
     @Test
+    public void whenVendingMachineIsInitializedDisplayReadsINSERTCOINS() {
+        vm.initialize();
+        assertThat(vm.getDisplayMessage(), containsString("INSERT COINS"));
+    }
+    
+    @Test
     public void vendingMachineCalculatesCoinValue() {
-        assertEquals(0.25, vm.evaluateCoin(quarter), 0.00); 
+        // asserEquals requires a third 'delta' argument for double input parameters
+        vm.initialize();
+        vm.insertCoin(quarter);
+        assertThat(vm.getDisplayMessage(), containsString("0.25"));
     }
 
+/* Template to test output
+    @Test
+    public void templateToTestOutput() {
+        // System.err.print("hello again");
+        // assertEquals("hello again", errContent.toString());
+        // assertThat(result, containsString("Hello again"));
+*/
     @After
     public void cleanUpStreams() {
         System.setOut(null);
