@@ -25,6 +25,7 @@ public class VendingMachineTest {
     private Coin penny;
     private Coin quarter;
     private Coin dime;
+    private Coin nickel;
     private Coin aCoin;
     private VendingMachine vm;
 
@@ -34,6 +35,7 @@ public class VendingMachineTest {
         penny = new Coin(2.5, 0.75);
         quarter = new Coin(5.67, 0.955);
         dime = new Coin(2.25, 0.705);
+        nickel = new Coin(5.00, 0.835);
         ci = new CoinInputter(penny);
         co = new CoinOutputter();
         dm = new DisplayManager();
@@ -85,22 +87,27 @@ public class VendingMachineTest {
         assertThat(vm.getDisplayMessage(), containsString("0.25"));
     }
     @Test
-    public void whenDimeInsertedValueDisplayedIsZeroPoint10() {
+    public void whenDimeIsInsertedValueDisplayedIsZeroPoint10() {
         // asserEquals requires a third 'delta' argument for double input parameters
         vm.initialize();
         vm.insertCoin(dime);
         assertThat(vm.getDisplayMessage(), containsString("0.10"));
     }
-/*
+    @Test
+    public void whenPennyIsInsertedValueDisplayedIsZeroPoint05() {
+        // asserEquals requires a third 'delta' argument for double input parameters
+        vm.initialize();
+        vm.insertCoin(nickel);
+        assertThat(vm.getDisplayMessage(), containsString("0.05"));
+   }
     @Test
     public void when15CentsAreInsertedValueDisplayedIsZeroPoint15() {
         // asserEquals requires a third 'delta' argument for double input parameters
         vm.initialize();
         vm.insertCoin(dime);
-        vm.insertCoin(penny);
+        vm.insertCoin(nickel);
         assertThat(vm.getDisplayMessage(), containsString("0.15"));
     }
-*/
 /* Template to test output
     @Test
     public void templateToTestOutput() {
