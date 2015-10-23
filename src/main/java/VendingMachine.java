@@ -49,6 +49,9 @@ public class VendingMachine {
     public void setState(State state) {
         this.state = state;
     }
+    public State getState() {
+        return(this.state);
+    }
     public String getDisplayMessage() {
         switch(this.state) {
         case DONE:
@@ -63,8 +66,15 @@ public class VendingMachine {
         return(this.dm.getDisplayMsg());
     }
     public Item selectProduct(Item item) {
-        this.setState(State.DONE);
-        dm.announceThankYou();
-        return(Item.COLA);
+        this.setState(State.ACCEPTING);
+        // check inserted price
+        if(this.getCurrentTotal() == item.getPrice()) {
+            this.setState(State.DONE);
+            dm.announceThankYou();
+            return(Item.COLA);
+        }
+        else{
+            return((Item)null);
+        }           
     }
 }

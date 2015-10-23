@@ -126,7 +126,7 @@ public class VendingMachineTest {
         vm.insertCoin(quarter);
         item = vm.selectProduct(Item.COLA);
         assertThat(vm.getDisplayMessage(), is("THANK YOU"));
-        assertEquals(item, Item.COLA);
+        assertThat(item, is(Item.COLA));
     }
     @Test
     public void afterThankYouIsDisplayedDisplayReadsInsertCoins() {
@@ -154,6 +154,15 @@ public class VendingMachineTest {
         item = vm.selectProduct(Item.COLA);
         assertThat(vm.getDisplayMessage(), is("THANK YOU"));
         assertThat(vm.getDisplayMessage(), is("INSERT COINS"));
+    }
+    @Test
+    public void withColaButtonAnd50CentsInsertedValueIsDisplayed() {
+        vm.initialize();
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        item = vm.selectProduct(Item.COLA);
+        assertThat(vm.getDisplayMessage(), containsString("0.50"));
+        assertThat(item, nullValue());
     }
         
 /* Template to test output
