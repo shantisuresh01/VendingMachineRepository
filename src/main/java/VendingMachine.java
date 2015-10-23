@@ -39,9 +39,13 @@ public class VendingMachine {
     }
     public void initialize() {
         this.currentTotal = 0.0;
-        this.dm.announceInsertCoins();
+        this.dm.initialize();
     }
     public String getDisplayMessage() {
         return(this.dm.getDisplayMsg());
+    }
+    public Item selectProduct(Item item) {
+        dm.announceThankYou();
+        return(Item.COLA);
     }
 }

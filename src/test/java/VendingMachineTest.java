@@ -28,6 +28,7 @@ public class VendingMachineTest {
     private Coin nickel;
     private Coin aCoin;
     private VendingMachine vm;
+    private Item item;
 
     @Before
     public void setUp() {
@@ -107,6 +108,37 @@ public class VendingMachineTest {
         vm.insertCoin(dime);
         vm.insertCoin(nickel);
         assertThat(vm.getDisplayMessage(), containsString("0.15"));
+    }
+    @Test
+    public void when50CentsAreInsertedValueDisplayedIsZeroPoint50() {
+        // asserEquals requires a third 'delta' argument for double input parameters
+        vm.initialize();
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        assertThat(vm.getDisplayMessage(), containsString("0.50"));
+    }
+    @Test
+    public void withColaButtonAndOneDollarColaIsReturnedAndThankYouDisplayed() {
+        vm.initialize();
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        item = vm.selectProduct(Item.COLA);
+        assertThat(vm.getDisplayMessage(), is("THANK YOU"));
+        assertEquals(item, Item.COLA);
+    }
+    @Test
+    public void afterThankYouIsDisplayedDisplayReadsInsertCoins() {
+        vm.initialize();
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        vm.insertCoin(quarter);
+        item = vm.selectProduct(Item.COLA);
+        assertThat(vm.getDisplayMessage(), is("THANK YOU"));
+        assertThat(vm.getDisplayMessage(), is("INSERT COINS"));
+        
     }
 /* Template to test output
     @Test
