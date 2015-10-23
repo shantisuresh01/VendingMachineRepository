@@ -7,4 +7,6 @@ CoinInputter.class
 Coin.class
 CoinValidator$ValidCoin.class
 Item.class
+VendingMachine$State.class
 CoinInputter$CoinState.class
+VendingMachine$1.class

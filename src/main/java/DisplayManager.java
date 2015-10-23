@@ -11,11 +11,15 @@ public class DisplayManager {
     public void updateDisplayMsg(String msg) {
         this.displayMsg = msg;
     }
+    public String getDisplayMsg() {
+        return this.displayMsg;
+    }
+    /* Commenting out state - needs to actually be in VendingMahcine
     public void initialize() {
         this.announceInsertCoins();
         this.wasDisplayRead = false;
     }
-    public String getDisplayMsg() {
+    public String getDisplayMsgOld() {
     // if the display has been read initialize and return insert coins.
         if (this.wasDisplayRead) {
             this.initialize();
@@ -25,6 +29,7 @@ public class DisplayManager {
         }
         return this.displayMsg;
     }
+    */
     public void announceInsertCoins() {
         this.updateDisplayMsg(this.insertCoins);
     }

@@ -140,6 +140,22 @@ public class VendingMachineTest {
         assertThat(vm.getDisplayMessage(), is("INSERT COINS"));
         
     }
+    @Test
+    public void afterInsertingCoinsInsertedValueIsDisplayed(){
+        vm.initialize();
+        vm.insertCoin(quarter);
+        assertThat(vm.getDisplayMessage(), containsString("0.25"));
+        vm.insertCoin(quarter);
+        assertThat(vm.getDisplayMessage(), containsString("0.50"));
+        vm.insertCoin(quarter);
+        assertThat(vm.getDisplayMessage(), containsString("0.75"));
+        vm.insertCoin(quarter);
+        assertThat(vm.getDisplayMessage(), containsString("1.00"));
+        item = vm.selectProduct(Item.COLA);
+        assertThat(vm.getDisplayMessage(), is("THANK YOU"));
+        assertThat(vm.getDisplayMessage(), is("INSERT COINS"));
+    }
+        
 /* Template to test output
     @Test
     public void templateToTestOutput() {
